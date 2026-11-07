@@ -1,0 +1,90 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+
+    // Global Safety Net: default deny
+    match /{document=**} {
+      allow read, write: if false;
+    }
+
+    function incoming() {
+      return request.resource.data;
+    }
+
+    function existing() {
+      return resource.data;
+    }
+
+    function isValidId(id) {
+      return id is string && id.size() <= 128 && id.matches('^[a-zA-Z0-9_\\-]+$');
+    }
+
+    // Validation Blueprint for Post (strict schema and boundary guards)
+    function isValidPost(data) {
+      return data.keys().hasAll(['title', 'content', 'author', 'category', 'createdAt', 'authorId']) &&
+             data.keys().hasOnly(['id', 'title', 'content', 'author', 'category', 'createdAt', 'authorId', 'hearts', 'moderation']) &&
+             (!('id' in data) || (data.id is string && data.id.size() <= 128)) &&
+             data.title is string && data.title.size() >= 3 && data.title.size() <= 200 &&
+             data.content is string && data.content.size() >= 10 && data.content.size() <= 5000 &&
+             data.author is string && data.author.size() >= 1 && data.author.size() <= 50 &&
+             data.category is string && data.category.size() <= 50 &&
+             data.createdAt is string && data.createdAt.size() <= 100 &&
+             data.authorId is string && data.authorId.size() <= 128 &&
+             (!('hearts' in data) || data.hearts is number);
+    }
+
+    // Validation Blueprint for Comment
+    function isValidComment(data) {
+      return data.keys().hasAll(['content', 'author', 'createdAt', 'authorId']) &&
+             data.keys().hasOnly(['id', 'content', 'author', 'createdAt', 'authorId', 'moderation']) &&
+             (!('id' in data) || (data.id is string && data.id.size() <= 128)) &&
+             data.content is string && data.content.size() >= 1 && data.content.size() <= 2000 &&
+             data.author is string && data.author.size() >= 1 && data.author.size() <= 50 &&
+             data.createdAt is string && data.createdAt.size() <= 100 &&
+             data.authorId is string && data.authorId.size() <= 128;
+    }
+
+    // Validation Blueprint for Heart Reaction
+    function isValidHeart(data, userId) {
+      return data.keys().hasAll(['userId', 'createdAt']) &&
+             data.keys().hasOnly(['userId', 'createdAt']) &&
+             data.userId is string && data.userId.size() <= 128 &&
+             data.userId == userId &&
+             data.createdAt is string && data.createdAt.size() <= 100;
+    }
+
+    // Posts Collection
+    match /posts/{postId} {
+      allow read: if true;
+
+      allow create: if isValidId(postId) &&
+                       isValidPost(incoming());
+
+      allow update: if (
+        // Action: Reaction Counter Toggle (hearts)
+        incoming().diff(existing()).affectedKeys().hasOnly(['hearts']) &&
+        incoming().hearts is number
+      );
+
+      // Comments Subcollection
+      match /comments/{commentId} {
+        allow read: if true;
+
+        allow create: if isValidId(commentId) &&
+                         isValidComment(incoming());
+
+        allow update, delete: if false;
+      }
+
+      // Hearts Subcollection
+      match /hearts/{userId} {
+        allow read: if true;
+
+        allow create, update: if isValidId(userId) &&
+                                 isValidHeart(incoming(), userId);
+
+        allow delete: if isValidId(userId);
+      }
+    }
+  }
+}

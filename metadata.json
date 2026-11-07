@@ -1,0 +1,6 @@
+{
+  "name": "SafeSpace",
+  "description": "An interactive, supportive anonymous blog and community to share experiences with social pressure and personal growth, protected by multi-language Gemini AI cyberbullying and harmful language moderation.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

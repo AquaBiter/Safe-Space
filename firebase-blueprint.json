@@ -1,0 +1,122 @@
+{
+  "entities": {
+    "Post": {
+      "title": "Post",
+      "description": "An anonymous reflection post shared by a visitor on SafeSpace.",
+      "type": "object",
+      "properties": {
+        "title": {
+          "type": "string",
+          "description": "Title of the reflection post",
+          "minLength": 3,
+          "maxLength": 200
+        },
+        "content": {
+          "type": "string",
+          "description": "Main body text of the post",
+          "minLength": 10,
+          "maxLength": 5000
+        },
+        "author": {
+          "type": "string",
+          "description": "Chosen pseudonym or anonymous name",
+          "minLength": 1,
+          "maxLength": 50
+        },
+        "category": {
+          "type": "string",
+          "description": "Topic category",
+          "maxLength": 50
+        },
+        "createdAt": {
+          "type": "string",
+          "description": "Creation timestamp in ISO 8601 format"
+        },
+        "authorId": {
+          "type": "string",
+          "description": "UID of the creator (anonymous or authenticated)",
+          "maxLength": 128
+        },
+        "hearts": {
+          "type": "number",
+          "description": "Total heart reaction count"
+        },
+        "moderation": {
+          "type": "object",
+          "description": "AI safety assessment summary"
+        }
+      },
+      "required": ["title", "content", "author", "category", "createdAt", "authorId"]
+    },
+    "Comment": {
+      "title": "Comment",
+      "description": "A supportive or thoughtful community comment under a post.",
+      "type": "object",
+      "properties": {
+        "content": {
+          "type": "string",
+          "description": "Comment text",
+          "minLength": 1,
+          "maxLength": 2000
+        },
+        "author": {
+          "type": "string",
+          "description": "Chosen pseudonym or anonymous name",
+          "minLength": 1,
+          "maxLength": 50
+        },
+        "createdAt": {
+          "type": "string",
+          "description": "Creation timestamp in ISO 8601 format"
+        },
+        "authorId": {
+          "type": "string",
+          "description": "UID of the commenter",
+          "maxLength": 128
+        },
+        "moderation": {
+          "type": "object",
+          "description": "AI safety assessment summary"
+        }
+      },
+      "required": ["content", "author", "createdAt", "authorId"]
+    },
+    "Heart": {
+      "title": "Heart",
+      "description": "A heart reaction record mapping a user to a post.",
+      "type": "object",
+      "properties": {
+        "userId": {
+          "type": "string",
+          "description": "UID of the user who hearted",
+          "maxLength": 128
+        },
+        "createdAt": {
+          "type": "string",
+          "description": "Timestamp when reaction was added"
+        }
+      },
+      "required": ["userId", "createdAt"]
+    }
+  },
+  "firestore": {
+    "/posts/{postId}": {
+      "schema": {
+        "$ref": "#/entities/Post"
+      },
+      "description": "Live collection of reflection posts"
+    },
+    "/posts/{postId}/comments/{commentId}": {
+      "schema": {
+        "$ref": "#/entities/Comment"
+      },
+      "description": "Live subcollection of comments per post"
+    },
+    "/posts/{postId}/hearts/{userId}": {
+      "schema": {
+        "$ref": "#/entities/Heart"
+      },
+      "description": "Heart reactions recorded per user for a post"
+    }
+  }
+}

@@ -1,0 +1,129 @@
+[
+  {
+    "id": "post-1",
+    "title": "The exhausting race to look successful on LinkedIn",
+    "content": "I'm 26 and I catch myself spiraling every time I open career social media. Everyone seems to be 'thrilled to announce' promotions, Forbes 30u30 nominations, or seamless careers while I'm still trying to figure out what brings me genuine peace. Last week I decided to step away from mindless networking and set boundaries on work hours. Sharing this because if you feel behind, you are really not alone. Life isn't a synchronized race.",
+    "author": "QuietSeeker",
+    "category": "Social Pressure",
+    "createdAt": "2026-10-31T10:06:33.185Z",
+    "hearts": 42,
+    "moderation": {
+      "status": "APPROVED",
+      "isHarmful": false,
+      "category": "vulnerable_struggle",
+      "toxicityScore": 0,
+      "detectedLanguage": "English",
+      "reason": "Supportive, vulnerable sharing of personal struggle with career expectations.",
+      "encouragementTip": "Thank you for your honesty—giving yourself grace is the first step to true peace.",
+      "moderatedAt": "2026-10-31T10:06:33.186Z"
+    },
+    "comments": [
+      {
+        "id": "c-1",
+        "author": "GentleBreeze",
+        "content": "I needed to read this today. Comparing our backstage to everyone else’s highlight reel is draining. Keep going at your own pace!",
+        "createdAt": "2026-10-31T12:06:33.186Z",
+        "moderation": {
+          "status": "APPROVED",
+          "isHarmful": false,
+          "category": "none",
+          "toxicityScore": 0,
+          "detectedLanguage": "English",
+          "reason": "Uplifting and empathetic comment.",
+          "moderatedAt": "2026-10-31T12:06:33.186Z"
+        }
+      },
+      {
+        "id": "c-2",
+        "author": "MountainHiker",
+        "content": "Deleting those apps from my home screen helped my mental clarity more than any productivity guru ever could.",
+        "createdAt": "2026-10-31T13:06:33.186Z",
+        "moderation": {
+          "status": "APPROVED",
+          "isHarmful": false,
+          "category": "none",
+          "toxicityScore": 0,
+          "detectedLanguage": "English",
+          "reason": "Constructive personal tip.",
+          "moderatedAt": "2026-10-31T13:06:33.186Z"
+        }
+      }
+    ]
+  },
+  {
+    "id": "post-2",
+    "title": "Laban lang: overcoming family expectations and living my own dream",
+    "content": "Minsan ang bigat ng expectations ng pamilya. Lahat sila gustong maging accountant o engineer ako, pero ang totoo, passion ko talaga ang visual arts at teaching. Matagal akong natakot na ma-disappoint sila. Pero recently, I had a calm, respectful talk with my parents. It wasn't easy, but setting gentle boundaries was the best thing I did for my self-growth this year.",
+    "author": "SinagNgAraw",
+    "category": "Academic & Career",
+    "createdAt": "2026-10-31T03:06:33.186Z",
+    "hearts": 54,
+    "moderation": {
+      "status": "APPROVED",
+      "isHarmful": false,
+      "category": "vulnerable_struggle",
+      "toxicityScore": 0,
+      "detectedLanguage": "Tagalog / Filipino",
+      "reason": "Honest personal journey regarding familial expectations and constructive dialogue.",
+      "encouragementTip": "Mabuhay ang tapang mo! Choosing your genuine path with respect takes courage.",
+      "moderatedAt": "2026-10-31T03:06:33.186Z"
+    },
+    "comments": [
+      {
+        "id": "c-3",
+        "author": "TalaMaynila",
+        "content": "Sobrang ramdam kita. Proud of you for speaking your truth with respect!",
+        "createdAt": "2026-10-31T07:06:33.186Z",
+        "moderation": {
+          "status": "APPROVED",
+          "isHarmful": false,
+          "category": "none",
+          "toxicityScore": 0,
+          "detectedLanguage": "Tagalog / Filipino",
+          "reason": "Supportive community encouragement.",
+          "moderatedAt": "2026-10-31T07:06:33.186Z"
+        }
+      }
+    ]
+  },
+  {
+    "id": "post-3",
+    "title": "Learning that my body doesn’t exist to satisfy societal aesthetic standards",
+    "content": "Summer used to make me dread social gatherings because of unsolicited comments about weight from relatives and acquaintances. This year, I made a pact to celebrate my body for the breath it gives me, the places it carries me to, and the hugs it shares. Healing your relationship with self-image is non-linear, but it starts with speaking kindly to yourself in the mirror.",
+    "author": "BloomInSilence",
+    "category": "Self-Improvement",
+    "createdAt": "2026-10-30T15:06:33.186Z",
+    "hearts": 67,
+    "moderation": {
+      "status": "APPROVED",
+      "isHarmful": false,
+      "category": "vulnerable_struggle",
+      "toxicityScore": 0,
+      "detectedLanguage": "English",
+      "reason": "Positive self-acceptance reflection fostering body kindness.",
+      "encouragementTip": "Self-compassion is a superpower in a culture obsessed with vanity.",
+      "moderatedAt": "2026-10-30T15:06:33.186Z"
+    },
+    "comments": []
+  },
+  {
+    "id": "post-4",
+    "title": "Apreniendo a decir \"no\" sin sentir culpa excesiva",
+    "content": "Siempre fui un 'people-pleaser'. Decía que sí a cualquier favor, a horas extras no pagadas, y a salidas que me dejaban exhausto solo para no incomodar. Mi terapeuta me enseñó que cada vez que digo 'sí' a otros por miedo, me estoy diciendo 'no' a mí mismo. Ha sido difícil, pero practicar límites pequeños me ha devuelto la tranquilidad.",
+    "author": "CaminanteTranquilo",
+    "category": "Mental Wellbeing",
+    "createdAt": "2026-10-30T03:06:33.186Z",
+    "hearts": 38,
+    "moderation": {
+      "status": "APPROVED",
+      "isHarmful": false,
+      "category": "vulnerable_struggle",
+      "toxicityScore": 0,
+      "detectedLanguage": "Spanish",
+      "reason": "Healthy psychological reflection on setting interpersonal boundaries.",
+      "encouragementTip": "Poner límites con amor es un acto de respeto hacia uno mismo y hacia los demás.",
+      "moderatedAt": "2026-10-30T03:06:33.186Z"
+    },
+    "comments": []
+  }
+]
